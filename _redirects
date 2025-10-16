@@ -1,0 +1,5 @@
+# Cloudflare Pages重定向配置
+# 确保所有文件正确服务
+
+# 处理SPA路由（如果需要）
+/*    /index.html   200

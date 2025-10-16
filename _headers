@@ -1,0 +1,10 @@
+# 为静态文件设置正确的MIME类型
+/assets/css/*.css
+  Content-Type: text/css
+
+/assets/js/*.js
+  Content-Type: application/javascript
+
+# 缓存控制
+/assets/*
+  Cache-Control: public, max-age=31536000
