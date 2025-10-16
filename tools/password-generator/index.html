@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线密码生成器 - 生成强密码，支持自定义长度和字符类型，确保账户安全">
+    <meta name="keywords" content="密码生成器,强密码,安全密码,随机密码,在线工具">
+    <title>密码生成器 - 免费在线强密码生成工具 | Kit.Sijia.Fun</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="../../" class="navbar-brand">🛠️ Kit.Sijia.Fun</a>
+            <ul class="navbar-links">
+                <li><a href="../../">首页</a></li>
+                <li><a href="../../#tools">工具</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>🔐 密码生成器</h1>
+        <p>生成强密码，可自定义规则，确保账户安全</p>
+    </div>
+
+    <div class="container-narrow">
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR_PUBLISHER_ID" data-ad-slot="YOUR_AD_SLOT_ID_1" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="tool-container">
+            <div class="generator-section">
+                <div class="password-display">
+                    <input type="text" id="passwordOutput" readonly placeholder="生成的密码将显示在这里...">
+                    <button class="btn btn-primary" id="generateBtn">🎲 生成密码</button>
+                </div>
+
+                <div class="password-actions">
+                    <button class="btn btn-secondary" id="copyBtn">📋 复制</button>
+                    <button class="btn btn-secondary" id="regenerateBtn">🔄 重新生成</button>
+                    <span id="strengthIndicator" class="strength-indicator"></span>
+                </div>
+            </div>
+
+            <div class="settings-panel">
+                <h3>密码设置</h3>
+                <div class="setting-group">
+                    <label>
+                        <span>密码长度: <span id="lengthValue">16</span></span>
+                        <input type="range" id="lengthSlider" min="4" max="128" value="16">
+                    </label>
+                </div>
+
+                <div class="setting-group">
+                    <h4>字符类型</h4>
+                    <label><input type="checkbox" id="includeUppercase" checked> 大写字母 (A-Z)</label>
+                    <label><input type="checkbox" id="includeLowercase" checked> 小写字母 (a-z)</label>
+                    <label><input type="checkbox" id="includeNumbers" checked> 数字 (0-9)</label>
+                    <label><input type="checkbox" id="includeSymbols"> 特殊符号 (!@#$%^&*)</label>
+                </div>
+
+                <div class="setting-group">
+                    <h4>高级选项</h4>
+                    <label><input type="checkbox" id="excludeAmbiguous"> 排除易混淆字符 (0oO1lI)</label>
+                    <label><input type="checkbox" id="startWithLetter"> 以字母开头</label>
+                </div>
+            </div>
+
+            <div class="ad-container">
+                <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-YOUR_PUBLISHER_ID" data-ad-slot="YOUR_AD_SLOT_ID_2"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <div class="batch-generator">
+                <h3>批量生成</h3>
+                <div class="batch-controls">
+                    <label>
+                        生成数量:
+                        <input type="number" id="batchCount" value="5" min="1" max="50">
+                    </label>
+                    <button class="btn btn-primary" id="batchGenerateBtn">批量生成</button>
+                </div>
+                <div id="batchResults" class="batch-results"></div>
+            </div>
+
+            <div class="usage-guide">
+                <h3>📖 密码安全建议</h3>
+                <div class="security-tips">
+                    <div class="tip-item">
+                        <h4>🔒 密码强度</h4>
+                        <ul>
+                            <li>长度至少12位，推荐16位以上</li>
+                            <li>包含大小写字母、数字和特殊符号</li>
+                            <li>避免使用个人信息和常见词汇</li>
+                        </ul>
+                    </div>
+                    <div class="tip-item">
+                        <h4>🛡️ 使用建议</h4>
+                        <ul>
+                            <li>每个账户使用不同的密码</li>
+                            <li>定期更换重要账户密码</li>
+                            <li>使用密码管理器保存密码</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR_PUBLISHER_ID" data-ad-slot="YOUR_AD_SLOT_ID_3" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 - 2025 Kit.Sijia.Fun | 免费在线工具箱</p>
+        <p>所有工具完全免费，无需注册，保护隐私</p>
+    </footer>
+
+    <script src="../../assets/js/common.js"></script>
+    <script src="../../assets/js/ads.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

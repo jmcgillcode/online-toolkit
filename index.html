@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线工具箱 - 提供视频播放、格式转换、文本处理、计算器等50+实用工具，无需注册，免费使用">
+    <meta name="keywords" content="在线工具,格式转换,文本工具,计算器,开发者工具,免费工具,JSON格式化,二维码生成,密码生成器,M3U8播放器">
+    <meta name="author" content="Kit.Sijia.Fun">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="zh-CN">
+    <link rel="canonical" href="https://kit.sijia.fun/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kit.sijia.fun/">
+    <meta property="og:title" content="工具箱 - 免费在线实用工具集合">
+    <meta property="og:description" content="免费在线工具箱，提供50+实用工具，包括视频播放、格式转换、文本处理、计算器等，无需注册，完全免费">
+    <meta property="og:image" content="https://kit.sijia.fun/assets/images/og-image.png">
+    <meta property="og:site_name" content="Kit.Sijia.Fun">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kit.sijia.fun/">
+    <meta property="twitter:title" content="工具箱 - 免费在线实用工具集合">
+    <meta property="twitter:description" content="免费在线工具箱，提供50+实用工具，包括视频播放、格式转换、文本处理、计算器等">
+    <meta property="twitter:image" content="https://kit.sijia.fun/assets/images/twitter-image.png">
+
+    <title>工具箱 - 免费在线实用工具集合 | Kit.Sijia.Fun</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Kit.Sijia.Fun - 免费在线工具箱",
+        "description": "免费在线工具箱，提供50+实用工具，包括视频播放、格式转换、文本处理、计算器等，无需注册，完全免费",
+        "url": "https://kit.sijia.fun/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://kit.sijia.fun/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Kit.Sijia.Fun",
+            "url": "https://kit.sijia.fun/"
+        },
+        "inLanguage": "zh-CN",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "开发者,学生,办公人员,所有人"
+        },
+        "applicationCategory": "WebApplication",
+        "applicationSubCategory": "实用工具",
+        "operatingSystem": "任何支持现代浏览器的系统",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+            crossorigin="anonymous"></script>
+
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="assets/css/common.css">
+
+    <style>
+        /* 首页专用样式 */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 16px 24px;
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .search-input:focus {
+            outline: none;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+        
+        .category-section {
+            margin-bottom: 60px;
+        }
+        
+        .category-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .category-title::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .tool-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 24px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .tool-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .tool-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .tool-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .tool-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .badge-hot {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .badge-new {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* 广告样式 */
+        .ad-container {
+            margin: 40px auto;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .ad-responsive {
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .ad-container {
+                margin: 20px auto;
+                padding: 10px;
+            }
+
+            /* 移动端隐藏大广告，显示小广告 */
+            .ad-desktop-only {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .stats {
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 英雄区 -->
+    <section class="hero">
+        <h1>🛠️ 在线工具箱</h1>
+        <p>免费、快速、无需注册 - 一站式解决你的日常工具需求</p>
+        <div class="search-box">
+            <input 
+                type="text" 
+                class="search-input" 
+                id="searchInput"
+                placeholder="搜索工具..."
+            >
+        </div>
+    </section>
+
+    <!-- 顶部广告 -->
+    <div class="container" style="margin: 40px auto; text-align: center;">
+        <!-- AdSense 横幅广告 (728x90) -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID_1"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- 统计数据 -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="toolCount">10+</div>
+                <div class="stat-label">实用工具</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">免费使用</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">0</div>
+                <div class="stat-label">注册要求</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 工具列表 -->
+    <div class="container" id="toolsContainer">
+        <!-- 视频/音频工具 -->
+        <section class="category-section">
+            <h2 class="category-title">🎬 视频 & 音频工具</h2>
+            <div class="tools-grid">
+                <a href="tools/m3u8-player/" class="tool-card">
+                    <span class="tool-badge badge-hot">热门</span>
+                    <div class="tool-icon">▶️</div>
+                    <h3>M3U8 播放器</h3>
+                    <p>在线播放 M3U8/HLS 视频流，支持直播和点播</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- 文本处理工具 -->
+        <section class="category-section">
+            <h2 class="category-title">📝 文本处理工具</h2>
+            <div class="tools-grid">
+                <a href="tools/json-formatter/" class="tool-card">
+                    <span class="tool-badge badge-hot">热门</span>
+                    <div class="tool-icon">{ }</div>
+                    <h3>JSON 格式化</h3>
+                    <p>格式化、验证、压缩 JSON 数据</p>
+                </a>
+                
+                <a href="tools/text-counter/" class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <h3>字数统计</h3>
+                    <p>统计文本字数、词数、段落数</p>
+                </a>
+                
+                <a href="tools/base64/" class="tool-card">
+                    <div class="tool-icon">🔤</div>
+                    <h3>Base64 编解码</h3>
+                    <p>Base64 编码和解码工具</p>
+                </a>
+                
+                <a href="tools/md5/" class="tool-card">
+                    <div class="tool-icon">🔒</div>
+                    <h3>MD5 加密</h3>
+                    <p>MD5、SHA1、SHA256 等加密</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- 中间广告 -->
+        <div style="margin: 60px 0; text-align: center;">
+            <!-- AdSense 矩形广告 (336x280) -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:336px;height:280px"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID_2"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- 生成器工具 -->
+        <section class="category-section">
+            <h2 class="category-title">⚡ 生成器工具</h2>
+            <div class="tools-grid">
+                <a href="tools/qrcode-generator/" class="tool-card">
+                    <span class="tool-badge badge-hot">热门</span>
+                    <div class="tool-icon">📱</div>
+                    <h3>二维码生成器</h3>
+                    <p>生成各种二维码，支持文本、网址等</p>
+                </a>
+                
+                <a href="tools/password-generator/" class="tool-card">
+                    <div class="tool-icon">🔐</div>
+                    <h3>密码生成器</h3>
+                    <p>生成强密码，可自定义规则</p>
+                </a>
+                
+                <a href="tools/color-picker/" class="tool-card">
+                    <div class="tool-icon">🎨</div>
+                    <h3>颜色选择器</h3>
+                    <p>选择颜色并获取各种格式的颜色代码</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- 计算器工具 -->
+        <section class="category-section">
+            <h2 class="category-title">🔢 计算器工具</h2>
+            <div class="tools-grid">
+                <a href="tools/mortgage-calculator/" class="tool-card">
+                    <span class="tool-badge badge-hot">热门</span>
+                    <div class="tool-icon">🏠</div>
+                    <h3>房贷计算器</h3>
+                    <p>计算房贷月供、利息总额等</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- 开发者工具 -->
+        <section class="category-section">
+            <h2 class="category-title">👨‍💻 开发者工具</h2>
+            <div class="tools-grid">
+                <a href="tools/timestamp/" class="tool-card">
+                    <div class="tool-icon">⏱️</div>
+                    <h3>时间戳转换</h3>
+                    <p>Unix 时间戳与日期互转</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- 底部广告 -->
+    <div class="container" style="margin: 60px auto 40px; text-align: center;">
+        <!-- AdSense 大横幅广告 (970x250) -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:970px;height:250px"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID_3"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>© 2024 - 2025 Kit.Sijia.Fun | 免费在线工具箱</p>
+        <p>所有工具完全免费，无需注册，保护隐私</p>
+    </footer>
+
+    <!-- 公共脚本 -->
+    <script src="assets/js/common.js"></script>
+
+    <!-- 广告脚本 -->
+    <script src="assets/js/ads.js"></script>
+
+    <!-- 首页脚本 -->
+    <script>
+        // 搜索功能
+        const searchInput = document.getElementById('searchInput');
+        const toolsContainer = document.getElementById('toolsContainer');
+        
+        searchInput.addEventListener('input', Utils.debounce(function() {
+            const query = this.value.toLowerCase().trim();
+            
+            if (!query) {
+                // 显示所有工具
+                document.querySelectorAll('.category-section').forEach(section => {
+                    section.style.display = 'block';
+                });
+                document.querySelectorAll('.tool-card').forEach(card => {
+                    card.style.display = 'block';
+                });
+                return;
+            }
+            
+            // 搜索工具
+            let hasResults = false;
+            document.querySelectorAll('.category-section').forEach(section => {
+                let hasVisibleTools = false;
+                section.querySelectorAll('.tool-card').forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const desc = card.querySelector('p').textContent.toLowerCase();
+                    
+                    if (title.includes(query) || desc.includes(query)) {
+                        card.style.display = 'block';
+                        hasVisibleTools = true;
+                        hasResults = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                section.style.display = hasVisibleTools ? 'block' : 'none';
+            });
+            
+            if (!hasResults) {
+                Utils.Notification.warning('未找到相关工具');
+            }
+        }, 300));
+        
+        // 统计工具数量
+        const totalTools = document.querySelectorAll('.tool-card').length;
+        document.getElementById('toolCount').textContent = totalTools + '+';
+        
+        console.log('✅ 首页已加载');
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+/* 密码生成器工具样式 */
+
+.generator-section {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.password-display {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.password-display input {
+    flex: 1;
+    padding: var(--spacing-sm);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 1.1rem;
+    background: var(--bg-secondary);
+}
+
+.password-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.strength-indicator {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.strength-weak { background: #fee2e2; color: #991b1b; }
+.strength-medium { background: #fef3c7; color: #92400e; }
+.strength-strong { background: #d1fae5; color: #065f46; }
+
+.settings-panel {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.setting-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.setting-group h4 {
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    cursor: pointer;
+}
+
+.setting-group input[type="range"] {
+    width: 100%;
+    margin: var(--spacing-xs) 0;
+}
+
+.batch-generator {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.batch-controls {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: end;
+    margin-bottom: var(--spacing-md);
+}
+
+.batch-controls input {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.batch-results {
+    display: grid;
+    gap: var(--spacing-xs);
+}
+
+.batch-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.batch-item input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: monospace;
+}
+
+.usage-guide {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.security-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.tip-item h4 {
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary);
+}
+
+.tip-item ul {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    padding-left: var(--spacing-md);
+}

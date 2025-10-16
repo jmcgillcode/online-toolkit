@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线JSON格式化工具 - 格式化、验证、压缩JSON数据，支持语法高亮和错误检测">
+    <meta name="keywords" content="JSON格式化,JSON验证,JSON压缩,JSON工具,在线工具">
+    <meta name="author" content="Kit.Sijia.Fun">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kit.sijia.fun/tools/json-formatter/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JSON格式化工具 - 免费在线JSON格式化器">
+    <meta property="og:description" content="免费在线JSON格式化工具，支持格式化、验证、压缩JSON数据">
+    <meta property="og:url" content="https://kit.sijia.fun/tools/json-formatter/">
+
+    <title>JSON格式化工具 - 免费在线JSON格式化器 | Kit.Sijia.Fun</title>
+
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="../../" class="navbar-brand">
+                🛠️ Kit.Sijia.Fun
+            </a>
+            <ul class="navbar-links">
+                <li><a href="../../">首页</a></li>
+                <li><a href="../../#tools">工具</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <div class="page-header">
+        <h1>{ } JSON 格式化工具</h1>
+        <p>格式化、验证、压缩 JSON 数据，支持语法高亮和错误检测</p>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container-narrow">
+        <!-- 顶部广告 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID_1"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- 工具内容 -->
+        <div class="tool-container">
+            <div class="tool-header">
+                <div class="tool-actions">
+                    <button class="btn btn-primary" id="formatBtn">
+                        ✨ 格式化
+                    </button>
+                    <button class="btn btn-secondary" id="compressBtn">
+                        📦 压缩
+                    </button>
+                    <button class="btn btn-secondary" id="validateBtn">
+                        ✅ 验证
+                    </button>
+                    <button class="btn btn-secondary" id="clearBtn">
+                        🗑️ 清空
+                    </button>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="editor-section">
+                    <div class="editor-header">
+                        <span class="editor-title">输入 JSON</span>
+                        <div class="editor-controls">
+                            <button class="btn-small" id="pasteBtn">📋 粘贴</button>
+                            <button class="btn-small" id="loadSampleBtn">📄 示例</button>
+                        </div>
+                    </div>
+                    <textarea
+                        id="inputJson"
+                        class="json-editor"
+                        placeholder="请输入或粘贴 JSON 数据..."
+                        rows="15"
+                    ></textarea>
+                    <div class="editor-status">
+                        <span id="inputStatus" class="status-info">准备就绪</span>
+                        <span id="inputStats" class="status-stats"></span>
+                    </div>
+                </div>
+
+                <div class="editor-section">
+                    <div class="editor-header">
+                        <span class="editor-title">格式化结果</span>
+                        <div class="editor-controls">
+                            <button class="btn-small" id="copyBtn">📋 复制</button>
+                            <button class="btn-small" id="downloadBtn">💾 下载</button>
+                        </div>
+                    </div>
+                    <textarea
+                        id="outputJson"
+                        class="json-editor"
+                        placeholder="格式化结果将显示在这里..."
+                        readonly
+                        rows="15"
+                    ></textarea>
+                    <div class="editor-status">
+                        <span id="outputStatus" class="status-info">等待处理</span>
+                        <span id="outputStats" class="status-stats"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中间广告 -->
+            <div class="ad-container">
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:336px;height:280px"
+                     data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                     data-ad-slot="YOUR_AD_SLOT_ID_2"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- 设置面板 -->
+            <div class="settings-panel">
+                <h3>格式化设置</h3>
+                <div class="settings-row">
+                    <label>
+                        <input type="number" id="indentSize" value="2" min="1" max="8">
+                        缩进空格数
+                    </label>
+                    <label>
+                        <input type="checkbox" id="sortKeys">
+                        排序对象键
+                    </label>
+                    <label>
+                        <input type="checkbox" id="escapeUnicode">
+                        转义 Unicode
+                    </label>
+                </div>
+            </div>
+
+            <!-- 使用说明 -->
+            <div class="usage-guide">
+                <h3>📖 使用说明</h3>
+                <div class="guide-content">
+                    <div class="guide-item">
+                        <h4>格式化 JSON</h4>
+                        <p>将压缩的 JSON 数据格式化为易读的缩进格式，支持自定义缩进空格数。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h4>压缩 JSON</h4>
+                        <p>移除所有不必要的空格和换行符，生成最小化的 JSON 字符串。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h4>验证 JSON</h4>
+                        <p>检查 JSON 语法是否正确，显示详细的错误信息和位置。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h4>高级功能</h4>
+                        <ul>
+                            <li>支持键排序和 Unicode 转义</li>
+                            <li>实时字符和行数统计</li>
+                            <li>一键复制和下载结果</li>
+                            <li>示例数据快速测试</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部广告 -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID_3"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>© 2024 - 2025 Kit.Sijia.Fun | 免费在线工具箱</p>
+        <p>所有工具完全免费，无需注册，保护隐私</p>
+    </footer>
+
+    <!-- 脚本 -->
+    <script src="../../assets/js/common.js"></script>
+    <script src="../../assets/js/ads.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

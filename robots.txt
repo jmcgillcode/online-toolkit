@@ -1,0 +1,29 @@
+# Robots.txt for Kit.Sijia.Fun Online Tools
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /.claude/
+
+# Allow all tools
+Allow: /tools/
+
+# Sitemap location
+Sitemap: https://kit.sijia.fun/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
