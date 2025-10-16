@@ -76,70 +76,90 @@
 
     <style>
         /* 首页专用样式 */
-        .hero {
+        .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             font-weight: 700;
         }
-        
-        .hero p {
-            font-size: 1.25rem;
+
+        .header p {
+            font-size: 1.125rem;
             opacity: 0.95;
             max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        
-        .search-box {
-            max-width: 600px;
             margin: 0 auto;
-            position: relative;
         }
-        
-        .search-input {
-            width: 100%;
-            padding: 16px 24px;
+
+        /* 搜索框 */
+        .search-section {
+            max-width: 600px;
+            margin: -30px auto 60px;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 8px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .search-box input {
+            flex: 1;
             border: none;
-            border-radius: var(--radius-full);
-            font-size: 1rem;
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .search-input:focus {
+            padding: 12px 20px;
+            font-size: 15px;
             outline: none;
+            background: transparent;
         }
-        
+
+        .search-box button {
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        /* 统计区域 */
         .stats {
             display: flex;
             justify-content: center;
-            gap: 60px;
-            margin: 60px 0;
+            gap: 40px;
+            margin: 40px 0;
             flex-wrap: wrap;
         }
-        
+
         .stat-item {
             text-align: center;
         }
-        
+
         .stat-number {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
         }
-        
+
         .stat-label {
             font-size: 0.875rem;
             color: var(--text-secondary);
-            margin-top: 8px;
+            margin-top: 5px;
         }
         
         .category-section {
@@ -288,19 +308,19 @@
     </style>
 </head>
 <body>
-    <!-- 英雄区 -->
-    <section class="hero">
+    <!-- 头部 -->
+    <header class="header">
         <h1>🛠️ 在线工具箱</h1>
         <p>免费、快速、无需注册 - 一站式解决你的日常工具需求</p>
+    </header>
+
+    <!-- 搜索框 -->
+    <div class="search-section">
         <div class="search-box">
-            <input 
-                type="text" 
-                class="search-input" 
-                id="searchInput"
-                placeholder="搜索工具..."
-            >
+            <input type="text" id="searchInput" placeholder="搜索工具..." />
+            <button onclick="searchTools()">搜索</button>
         </div>
-    </section>
+    </div>
 
     <!-- 顶部广告 -->
     <div class="container" style="margin: 30px auto; text-align: center;">
@@ -318,7 +338,7 @@
     <div class="container">
         <div class="stats">
             <div class="stat-item">
-                <div class="stat-number" id="toolCount">10+</div>
+                <div class="stat-number">50+</div>
                 <div class="stat-label">实用工具</div>
             </div>
             <div class="stat-item">
@@ -378,6 +398,57 @@
             </div>
         </section>
 
+        <!-- 图片处理工具 -->
+        <section class="category-section">
+            <h2 class="category-title">🖼️ 图片处理工具</h2>
+            <div class="tools-grid">
+                <a href="#" onclick="Utils.Notification.info('图片压缩工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <span class="tool-badge badge-hot">热门</span>
+                    <div class="tool-icon">🗜️</div>
+                    <h3>图片压缩</h3>
+                    <p>压缩 JPG、PNG 图片，减小文件大小</p>
+                </a>
+                <a href="#" onclick="Utils.Notification.info('背景移除工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">✨</div>
+                    <h3>背景移除</h3>
+                    <p>AI 智能抠图，一键移除图片背景</p>
+                </a>
+                <a href="#" onclick="Utils.Notification.info('图片裁剪工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">📐</div>
+                    <h3>图片裁剪</h3>
+                    <p>在线裁剪、旋转、翻转图片</p>
+                </a>
+                <a href="#" onclick="Utils.Notification.info('证件照制作工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">📸</div>
+                    <h3>证件照制作</h3>
+                    <p>制作一寸、二寸等各种规格证件照</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- 文档转换工具 -->
+        <section class="category-section">
+            <h2 class="category-title">📄 文档转换工具</h2>
+            <div class="tools-grid">
+                <a href="#" onclick="Utils.Notification.info('PDF转Word工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <span class="tool-badge badge-hot">热门</span>
+                    <div class="tool-icon">📑</div>
+                    <h3>PDF 转 Word</h3>
+                    <p>PDF 转换为可编辑的 Word 文档</p>
+                </a>
+                <a href="#" onclick="Utils.Notification.info('PDF转Excel工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <h3>PDF 转 Excel</h3>
+                    <p>从 PDF 提取表格数据到 Excel</p>
+                </a>
+                <a href="#" onclick="Utils.Notification.info('PDF压缩工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">🗜️</div>
+                    <h3>PDF 压缩</h3>
+                    <p>压缩 PDF 文件大小，不损失质量</p>
+                </a>
+            </div>
+        </section>
+
         <!-- 中间广告 -->
         <div style="margin: 30px 0; text-align: center;">
             <!-- AdSense 矩形广告 (336x280) -->
@@ -432,10 +503,48 @@
         <section class="category-section">
             <h2 class="category-title">👨‍💻 开发者工具</h2>
             <div class="tools-grid">
+                <a href="tools/json-formatter/" class="tool-card">
+                    <span class="tool-badge badge-hot">热门</span>
+                    <div class="tool-icon">{ }</div>
+                    <h3>JSON 格式化</h3>
+                    <p>格式化、验证、压缩 JSON 数据</p>
+                </a>
+                <a href="#" onclick="Utils.Notification.info('URL编解码工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">🔗</div>
+                    <h3>URL 编解码</h3>
+                    <p>URL 编码和解码工具</p>
+                </a>
+                <a href="#" onclick="Utils.Notification.info('MD5加密工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">🔒</div>
+                    <h3>MD5 加密</h3>
+                    <p>MD5、SHA1、SHA256 加密</p>
+                </a>
                 <a href="#" onclick="Utils.Notification.info('时间戳转换工具即将上线，敬请期待！'); return false;" class="tool-card">
                     <div class="tool-icon">⏱️</div>
                     <h3>时间戳转换</h3>
                     <p>Unix 时间戳与日期互转</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- 查询工具 -->
+        <section class="category-section">
+            <h2 class="category-title">🔍 查询工具</h2>
+            <div class="tools-grid">
+                <a href="#" onclick="Utils.Notification.info('IP地址查询工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">🌐</div>
+                    <h3>IP 地址查询</h3>
+                    <p>查询 IP 地址归属地和详细信息</p>
+                </a>
+                <a href="#" onclick="Utils.Notification.info('手机号归属地查询即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">📞</div>
+                    <h3>手机号归属地</h3>
+                    <p>查询手机号码归属地信息</p>
+                </a>
+                <a href="#" onclick="Utils.Notification.info('网站测速工具即将上线，敬请期待！'); return false;" class="tool-card">
+                    <div class="tool-icon">⚡</div>
+                    <h3>网站测速</h3>
+                    <p>测试网站加载速度和性能</p>
                 </a>
             </div>
         </section>
@@ -468,12 +577,46 @@
     <!-- 首页脚本 -->
     <script>
         // 搜索功能
+        function searchTools() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            if (!query) {
+                Utils.Notification.warning('请输入搜索关键词');
+                return;
+            }
+
+            // 搜索工具
+            let hasResults = false;
+            document.querySelectorAll('.category-section').forEach(section => {
+                let hasVisibleTools = false;
+                section.querySelectorAll('.tool-card').forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const desc = card.querySelector('p').textContent.toLowerCase();
+
+                    if (title.includes(query) || desc.includes(query)) {
+                        card.style.display = 'block';
+                        hasVisibleTools = true;
+                        hasResults = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                section.style.display = hasVisibleTools ? 'block' : 'none';
+            });
+
+            if (!hasResults) {
+                Utils.Notification.warning('未找到相关工具');
+            } else {
+                Utils.Notification.success(`找到 ${document.querySelectorAll('.tool-card[style*="block"]').length} 个相关工具`);
+            }
+        }
+
+        // 实时搜索
         const searchInput = document.getElementById('searchInput');
-        const toolsContainer = document.getElementById('toolsContainer');
-        
         searchInput.addEventListener('input', Utils.debounce(function() {
             const query = this.value.toLowerCase().trim();
-            
+
             if (!query) {
                 // 显示所有工具
                 document.querySelectorAll('.category-section').forEach(section => {
@@ -484,36 +627,17 @@
                 });
                 return;
             }
-            
-            // 搜索工具
-            let hasResults = false;
-            document.querySelectorAll('.category-section').forEach(section => {
-                let hasVisibleTools = false;
-                section.querySelectorAll('.tool-card').forEach(card => {
-                    const title = card.querySelector('h3').textContent.toLowerCase();
-                    const desc = card.querySelector('p').textContent.toLowerCase();
-                    
-                    if (title.includes(query) || desc.includes(query)) {
-                        card.style.display = 'block';
-                        hasVisibleTools = true;
-                        hasResults = true;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-                
-                section.style.display = hasVisibleTools ? 'block' : 'none';
-            });
-            
-            if (!hasResults) {
-                Utils.Notification.warning('未找到相关工具');
-            }
+
+            searchTools();
         }, 300));
-        
-        // 统计工具数量
-        const totalTools = document.querySelectorAll('.tool-card').length;
-        document.getElementById('toolCount').textContent = totalTools + '+';
-        
+
+        // 回车搜索
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchTools();
+            }
+        });
+
         console.log('✅ 首页已加载');
     </script>
 </body>
